@@ -1,0 +1,103 @@
+% !TEX TS-program = uplatex
+% !TEX encoding = UTF-8 Unicode
+%%% 設定開始 %%%
+% \documentclass{ltjsarticle}
+\documentclass[report]{jlreq}% loads luatexja.sty internally
+
+%%%% 基本
+% スタイル設定
+	\usepackage[utf8]{inputenc} % Unicode使用可能
+	% \usepackage{csquotes} % 謎に警告が出るから
+	% \usepackage[ngerman]{babel} % ドイツ語にする
+	\usepackage{luatexja-fontspec} % フォント設定 
+	\setmainfont[Ligatures=TeX]{Times New Roman} % フォント設定
+	\setmainjfont[BoldFont=MS Gothic]{MS Mincho} % フォント設定
+	\usepackage[top=20truemm,bottom=20truemm,left=25truemm,right=20truemm]{geometry} % ページ設定
+	
+	% 機能系
+	\usepackage{amsmath} % 数式サポート
+	\usepackage{amssymb} % 数式記号サポート
+	\usepackage{pxrubrica}
+	\usepackage{bm} % 太字 \bm 使用可能
+	\usepackage{tcolorbox} % 定理の枠使用可能
+	\tcbuselibrary{breakable, skins, theorems} % 定理の枠使用可能
+	\usepackage{hyperref} % ハイパーリンク使用可能
+	\usepackage{cleveref} % 表\ref{hoge}をref{hoge}に ※ハイパーリンクの後に読み込まないとだめらしい！
+	\usepackage{graphicx} % 画像貼り付け使用可能
+	\usepackage{svg} % svg読み込み可能
+	\usepackage{here} % 画像表示位置
+	\usepackage{listings, jvlisting} % プログラムソース表示可能
+	\usepackage{enumitem} % 列挙（箇条書き）使用可能
+	\usepackage{biblatex} % BIBLaTeX使用可能
+	% sorting == n[name], t[title], y[year] v[volume], a[alphabetic], Xd(descending), none[Do not sort at all]
+	\usepackage{url} % url 使用可能
+	%\usepackage{caption} %タイトル使用可能
+	%\usepackage{subcaption} % 
+	\usepackage{multirow} % 表の行結合可能
+	\usepackage{physics} % 
+	\usepackage{array} % 表の幅と中心よせなど
+	\usepackage{hhline} % 水平線を引いたとき縦が途切れない
+	\usepackage{lltjext} % 縦書き使用可能
+	\usepackage{tikz} % TikZ使用可能
+	\usepackage{tikzsymbols} % TikZの文字使用可能
+	\usetikzlibrary{calc, intersections, angles, arrows.meta} % Tikz 拡張ライブラリ
+	\usepackage{circuitikz} % 論理回路使用可能
+	\usepackage{pdfpages} % PDF読み込み可能
+	\usepackage{fancyhdr}
+	
+	
+	% よく変更するもの
+	\bibliography{library}	%参考文献の取り込み（library.bibというファイルが存在する場合）
+	
+	\pagestyle{fancy} % ページ番号を消すなど {empty, plain, headings, myheadings, fancy}
+	\fancyhead[L]{}  % = \lhead{ヘッダー・左}
+	\fancyhead[C]{}  % = \chead{ヘッダー・中央}
+	\fancyhead[R]{\thepage}  % = \rhead{ヘッダー・右}
+
+	\fancyfoot[L]{}  % = \lfoot{フッター・左}
+	\fancyfoot[C]{}  % = \cfoot{フッター・中央}
+	\fancyfoot[R]{}  % = \rfoot{フッター・右}
+	\setlength{\headheight}{17.0pt}
+
+	\renewcommand{\headrulewidth}{0mm}
+	\renewcommand{\footrulewidth}{0mm}
+	
+	\lstset%
+	{%
+		basicstyle={\ttfamily},
+		identifierstyle={\small},
+		commentstyle={\smallitshape},
+		keywordstyle={\small\bfseries},
+		ndkeywordstyle={\small},
+		stringstyle={\small\ttfamily},
+		frame={tb},
+		breaklines=true,
+		columns=[l]{fullflexible},
+		numbers=left,
+		xrightmargin=0\zw,
+		xleftmargin=3\zw,
+		numberstyle={\scriptsize},
+		stepnumber=1,
+		numbersep=1\zw,
+		lineskip=-0.5ex,
+	}%
+	\renewcommand{\lstlistingname}{リスト}
+
+	% Clever Reference  \crefname{環境名}{単数形}{複数形}
+	%\crefname{equation}{式}{式}
+	%\crefname{figure}{図}{図}
+	%\crefname{table}{表}{表}
+	%\crefname{lstlisting}{リスト}{リスト}
+	
+	% カスタマイズ
+	\renewcommand{\thesection}{\arabic{section}}
+	\newcommand{\dirow}[2]{\multirow{2}{#1}{#2}} % セルの結合
+	\newcommand{\trirow}[2]{\multirow{3}{#1}{#2}} % セルの結合
+	\newcommand{\tgb}[1]{\textsf{\textgt{#1}}} % 太字
+	
+	\ctikzset
+	{%
+		logic ports=ieee,
+		logic ports/scale=1.0,
+	}
+
