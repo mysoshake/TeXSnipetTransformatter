@@ -1,0 +1,2 @@
+# TeXSnipetTransformatter
+TeXのソースから、スニペット用の各行を生み出すもの
