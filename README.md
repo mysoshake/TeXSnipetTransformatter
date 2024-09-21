@@ -1,2 +1,7 @@
-# TeXSnipetTransformatter
+# TeX Snipet Transformatter
 TeXのソースから、スニペット用の各行を生み出すもの
+
+## 手順
+1. ソースをコンパイル
+2. テキストファイルを指定して実行
+3. それらしいファイルが生成される
